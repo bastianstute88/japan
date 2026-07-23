@@ -1,4 +1,4 @@
-const CACHE = 'japan-2027-v2';
+const CACHE = 'japan-2027-v3';
 self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', e => {
   e.waitUntil(caches.keys().then(keys =>
