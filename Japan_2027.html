@@ -32,7 +32,7 @@
   --text: #FFFFFF;
   --text-dim: #FFFFFF;
   --text-faint: #FFFFFF;
-  --nav-h: 60px;
+  --nav-h: 108px;
   --header-h: 70px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -66,14 +66,14 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 #bottom-nav {
   position: fixed; bottom: 0; left: 0; right: 0; height: var(--nav-h);
   background: var(--surface); border-top: 1px solid var(--border);
-  display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; align-items: stretch; z-index: 100;
+  display: grid; grid-template-columns: repeat(5, 1fr); grid-auto-rows: 1fr; align-items: stretch; z-index: 100;
 }
 .nav-btn {
   flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 3px; background: none; border: none; color: var(--text-faint);
   font-size: 9px; font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif; font-weight: 500;
   cursor: pointer; transition: color 0.2s; padding: 6px 0;
-  letter-spacing: 0.3px; text-transform: uppercase;
+  letter-spacing: 0.2px; text-transform: uppercase;
 }
 .nav-btn .nav-icon { font-size: 22px; line-height: 1; }
 .nav-btn.active { color: var(--gold); }
@@ -359,8 +359,8 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 .goshuin-item.collected .goshuin-check { opacity: 1; }
 
 /* ── BOTTOM NAV 5 items ── */
-#bottom-nav .nav-btn { font-size: 8px; }
-#bottom-nav .nav-btn .nav-icon { font-size: 20px; }
+#bottom-nav .nav-btn { font-size: 9.5px; }
+#bottom-nav .nav-btn .nav-icon { font-size: 23px; }
 
 
 /* ── SUBWAY ── */
@@ -454,6 +454,8 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 .jm-gal-dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.28);transition:background .15s}
 .jm-gal-dots span.on{background:var(--red)}
 .jmo.imgonly .jm-ttl,.jmo.imgonly .jm-desc,.jmo.imgonly .jm-rows,.jmo.imgonly .jm-actions{display:none}
+.jmo.imgonly{align-items:center;padding:14px}
+.jmo.imgonly .jm{border-radius:18px;width:100%;max-width:560px;max-height:90vh;padding:12px}
 .jm-imgclose{display:none}
 .jmo.imgonly .jm-imgclose{display:block;width:100%;padding:12px;border-radius:12px;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-size:14px;font-weight:600;font-family:inherit;cursor:pointer}
 .tag-photo{background:rgba(255,255,255,.10);color:#FFFFFF;border:1px solid rgba(255,255,255,.45);cursor:default}
