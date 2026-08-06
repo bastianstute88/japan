@@ -115,6 +115,9 @@ open(P, 'w', encoding='utf-8').write(c)
 - **Stops nie per Teilstring suchen.** `[Ee]ikan` trifft „Gekk**eikan**", `[Rr]yoan` trifft
   „Taxi nach Ryoan-ji". Immer den **exakten vollen Namen** als Anker, danach den getroffenen
   Namen ausgeben und gegenprüfen.
+- **Maskierte Apostrophe brechen Auslese-Regexe.** `name:'Yoshi\\'s Adventure'` ist gültiges JS,
+  aber `name:'([^']*)'` bricht am `\\'` ab und liefert `Yoshi\\`. Immer `name:'((?:[^']|\\\\')*)'`
+  verwenden — sonst hältst du eine korrekte Datei für kaputt (genau das ist einmal passiert).
 - **Auch der exakte Name reicht nicht — er kommt an mehreren Tagen vor.** „Frühstück in Kyoto"
   steht an Tag 16 *und* Tag 23, „Frühstück to-go" an sechs Tagen, „Ryokan-Frühstück (La Vista
   Buffet)" an Tag 9 und 10. `c.index(...)` trifft dann stumm den falschen Tag. Jede Stop-Änderung
