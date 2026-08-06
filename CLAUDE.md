@@ -115,6 +115,11 @@ open(P, 'w', encoding='utf-8').write(c)
 - **Stops nie per Teilstring suchen.** `[Ee]ikan` trifft „Gekk**eikan**", `[Rr]yoan` trifft
   „Taxi nach Ryoan-ji". Immer den **exakten vollen Namen** als Anker, danach den getroffenen
   Namen ausgeben und gegenprüfen.
+- **Auch der exakte Name reicht nicht — er kommt an mehreren Tagen vor.** „Frühstück in Kyoto"
+  steht an Tag 16 *und* Tag 23, „Frühstück to-go" an sechs Tagen, „Ryokan-Frühstück (La Vista
+  Buffet)" an Tag 9 und 10. `c.index(...)` trifft dann stumm den falschen Tag. Jede Stop-Änderung
+  **tagesweise** ausführen: erst den Block über `{ n:<N>, date:` bis zum nächsten `\n{ n:` schneiden,
+  darin arbeiten, zurückschreiben.
 - **Doppelter `img:`-Key.** Vor dem Einfügen prüfen, ob das Objekt schon eins hat
   (`obj.count('img:')`). Bei doppeltem Key gewinnt in JS der **letzte** → Symptom
   „nur 1 Bild, obwohl 4 im Quelltext stehen".
