@@ -293,6 +293,23 @@ Damit eine spätere Sitzung sie nicht für Fehler hält und „repariert":
 - **Tag 1 ist absichtlich locker** — Ankunft im Hotel um 00:15. Es ist Bastians Geburtstag;
   Namiki Yabu Soba ist als `type:'birthday'` markiert.
 - **Tag 15 hat einen freien Nachmittag** — Simones Geburtstag nach dem Kaiseki bei Junsei.
+- **Die Hotels bleiben wie sie sind — Preis/Leistung ist geprüft und abgehakt (Aug 2026).**
+  Bastian hat Billig-Alternativen (APA-Kette) durchgerechnet: ~2.350 € Ersparnis möglich, aber
+  11–13 m² für zwei Personen plus Fotoausrüstung, und der APA-Gründer legte in den Zimmern
+  Bücher aus, die das Nanjing-Massaker leugnen. Verworfen. Entscheidend war die Einsicht, dass
+  **La Vista, der Osaka Marriott und Ekoin keine Betten, sondern Programmpunkte sind**
+  (Balkon-Onsen + Kaiseki / Sonnenaufgang aus 252 m + Harukas im Haus / Feuerzeremonie +
+  Mönchsritual) — die stehen als eigene Stops im Plan. Nicht wieder aufmachen.
+- **Tokio bleibt Asakusa, nicht Shinjuku.** Der gängige „Shinjuku als Basis"-Rat wurde geprüft
+  und ist bei dieser Route ein Unentschieden: Shinjuku gewinnt Tag 2, 5, 6, 8 (~3 Std),
+  Asakusa gewinnt Tag 0, 3, 7 (~2,5 Std). Ausschlaggebend gegen den Wechsel: **Senso-ji um
+  07:00 leer** funktioniert nur mit Wohnsitz Asakusa, der **Tobu-Spacia nach Nikko** fährt ab
+  der Hoteltür (ab Shinjuku nur 1–2 Abfahrten/Tag), und vier Abende sind auf den Stadtteil
+  gebaut (Geburtstags-Soba, Goshuin-Buch, Asakusa bei Nacht, Tempura nach Kamakura).
+  Merksatz: **Shinjukus Vorteil ist der Abend, Bastians Vorteil ist der Morgen.**
+- **Preisstand aller Hotel-/Flugzahlen im Notizen-Tab ist 20.07.2026.** Für Okt/Nov 2027
+  realistisch 10–15 % aufschlagen (~6.880 € → ~7.500–7.900 €). Beim Aktualisieren die Zeile
+  „Stand …" mitziehen, sonst wirken alte Zahlen wie frische.
 
 ### Kofferkette
 
