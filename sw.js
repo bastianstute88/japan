@@ -1,4 +1,4 @@
-const CACHE = 'japan-2027-v3';
+const CACHE = 'japan-2027-v4';  // 29.10.2026: Fotos als img/-Dateien (cache-first), HTML 0,3 MB
 self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', e => {
   e.waitUntil(caches.keys().then(keys =>
