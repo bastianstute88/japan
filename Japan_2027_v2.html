@@ -566,6 +566,7 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
 .t-dayhead .dh-num { font-size: 10px; font-weight: 600; color: var(--text-faint); text-transform: uppercase; letter-spacing: 1px; }
 .t-dayhead .dh-ttl { font-family: -apple-system-ui-serif,'Georgia',serif; font-size: 21px; font-weight: 700; color: var(--text); margin-top: 3px; line-height: 1.25; }
 .t-dayhead .dh-sub { font-size: 12px; color: var(--gold-light); margin-top: 3px; }
+.t-dayhead .dh-near { font-size: 12px; color: var(--text); margin-top: 8px; padding: 8px 10px; border-left: 2px solid #BC002D; background: var(--surface); border-radius: 8px; line-height: 1.45; }
 /* ── TAGES-TIMELINE (Lissabon-Boxen) ── */
 .ti { margin-bottom: 10px; }
 .t-time { font-size: 11px; font-weight: 600; color: var(--text-faint); letter-spacing: .5px; text-transform: uppercase; margin-bottom: 5px; padding: 0 2px; }
@@ -1078,9 +1079,7 @@ html, body { height: 100%; background: var(--bg); color: var(--text); font-famil
     <button class="nav-btn" onclick="switchV('kueche',this)"><span class="nav-icon">🍜</span>Küche</button>
     <button class="nav-btn" onclick="switchV('phrasen',this)"><span class="nav-icon">🗣️</span>Phrasen</button>
     <button class="nav-btn" onclick="switchV('dokumente',this)"><span class="nav-icon">📄</span>Dokumente</button>
-    <button class="nav-btn nav-prep" onclick="switchV('pack',this)"><span class="nav-icon">🎒</span>Packen</button>
     <button class="nav-btn nav-prep" onclick="switchV('vorbuchen',this)"><span class="nav-icon">✅</span>Vorbuchen</button>
-    <button class="nav-btn" onclick="switchV('notfall',this)"><span class="nav-icon">🚨</span>Notfall</button>
     <button class="nav-btn" onclick="switchV('notizen',this)"><span class="nav-icon">📝</span>Notizen</button>
   </nav>
 </div>
@@ -2409,6 +2408,7 @@ function showDay(i){
   document.getElementById('t-dayhead').innerHTML=
     `<div class="dh-ttl">${day.title}</div>`+
     (day.sub?`<div class="dh-sub">${day.sub}</div>`:'')+
+    ((day.near||(hotel&&hotel.near))?`<div class="dh-near">🚪 <b>Vor der Haustür – jederzeit:</b> ${day.near||hotel.near}</div>`:'')+
     `<div class="day-progress"><div class="dp-bar"><div class="dp-fill" id="dp-fill"></div></div><div class="dp-label" id="dp-label"></div></div>`;
   document.getElementById('t-timeline').innerHTML=renderTimeline(day);
   updateDayProgress(day.n);
@@ -2493,19 +2493,26 @@ function toggleDone(dayN,idx,ev){
   const key=dayN+'_'+idx;
   const st=getDoneState();
   const el=document.getElementById('ti-'+dayN+'-'+idx);
-  if(armedKey===key){
-    // zweiter Tipp → bestätigen (abhaken bzw. entfernen)
-    const nowDone=!st[key];
-    st[key]=nowDone; saveDoneState(st);
+  if(!st[key]){
+    // ein Tipp = sofort erledigt
     clearArmed();
-    if(el) el.classList.toggle('done', nowDone);
+    st[key]=true; saveDoneState(st);
+    if(el) el.classList.add('done');
+    updateDayProgress(dayN);
+    renderDayTabs();
+    return;
+  }
+  if(armedKey===key){
+    // nur das Zurücknehmen fragt nach: zweiter Tipp innerhalb von 2 s
+    st[key]=false; saveDoneState(st);
+    clearArmed();
+    if(el) el.classList.remove('done');
     updateDayProgress(dayN);
     renderDayTabs();
   } else {
-    // erster Tipp → vormerken (zählt noch nicht)
     clearArmed();
     armedKey=key;
-    if(el) el.classList.add(st[key] ? 'confirm' : 'pre');
+    if(el) el.classList.add('confirm');
     armedTimer=setTimeout(clearArmed, 2000);
   }
 }
